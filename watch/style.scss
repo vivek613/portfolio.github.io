@@ -1,0 +1,85 @@
+/*
+https://dev.to/flexdigital/creating-a-braun-bn0171-watch-svg-animation-40pe
+
+Image credit: https://www.behance.net/gallery/64303683/Braun-Watch-Free-Vector-Resource
+*/
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    background-color: #FFCC00;
+  }
+  
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 776px;
+    margin: 0 auto 100px;
+  }
+  
+  .watch {
+    width: 403px;
+    position: relative;
+  
+    &-logo {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-28px, -70px);
+    }
+  
+    &-face {
+      position: absolute;
+      width: 359px;
+      height: 359px;
+      top: 208px;
+      left: 19px;
+    }
+  
+    .hours {
+      position: absolute;
+      left: 50%;
+      top: 88px;
+      transform-origin: 48% 105%;
+      filter: drop-shadow(1px 1px 0 #999999) drop-shadow(0.11rem 0.11rem 0.13rem rgba(0, 0, 0, 0.95));
+    }
+  
+    .mins {
+      position: absolute;
+      left: 49%;
+      margin-left: 2px;
+      top: 47px;
+      transform-origin: 48% 103%;
+      filter: drop-shadow(1px 1px 0 #999999) drop-shadow(0.11rem 0.11rem 0.13rem rgba(0, 0, 0, 0.95));
+  
+    }
+  
+    .secs {
+      position: absolute;
+      left: 48%;
+      top: 50px;
+      transform-origin: 49% 84%;
+      filter: drop-shadow(1px 1px 0 #f3dc7c) drop-shadow(0.11rem 0.11rem 0.13rem rgba(0, 0, 0, 0.95));
+    }
+  }
+  
+  .credits {
+    text-align: center;
+    margin-bottom: 100px;
+  
+    a {
+      color: #000000;
+      text-decoration: none;
+      border-bottom: 1px solid;
+    }
+  
+    sup {
+      font-size: 90%;
+    }
+  
+    span {
+      margin: 0 10px;
+      font-size: 12px;
+    }
+  }
+  

@@ -1,0 +1,86 @@
+:root {
+    --base-size: 200px;
+    --base-height: 173px;
+  }
+  
+  *, *::before, *::after {
+    padding: 0;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-color: #7a7b89;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 600px;
+    overflow: hidden;
+  }
+  
+  .shadow{
+    position: absolute;
+    width: 100%;
+    height: 200%;
+    background-image: radial-gradient(#000, transparent 60%);
+    transform: rotateX(90deg) translateZ(-100px);
+  }
+  
+  .icosahedron {
+    position: relative;
+    width: var(--base-size);
+    height: 169px;
+    transform-style: preserve-3d;
+    animation: rotate 20s infinite linear;
+    
+    @keyframes rotate {
+      from { transform: rotateX(0deg) rotateY(360deg) rotateZ(360deg); }
+      to { transform: rotateX(360deg) rotateY(0deg) rotateZ(-360deg); }
+    }
+  }
+  
+  .triangle {
+    width: var(--base-size);
+    height: var(--base-height);
+    position: absolute;
+    opacity: 0.8;
+    clip-path: polygon(0 0, 50% 100%, 100% 0);
+    transform-origin: top;
+    background-color: #23205fa8;
+  
+    @for $i from 1 through 20 {
+      &:nth-child(#{$i}) {
+        background-image:
+          radial-gradient(white, rgba(255,255,255, 1) 20px, transparent 40px),
+          radial-gradient(white, rgba(255,255,255, 1) 10px, transparent 30px),
+          radial-gradient(white, rgba(255,255,255, 1) 10px, transparent 40px),
+          radial-gradient(rgba(255,255,255, 1), rgba(255,255,255,0.3) 2px, transparent 30px);
+        background-size: 550px 550px, 50px 50px, 250px 250px, 150px 150px;
+        background-position: 0 0, 70px 100px, 60px 70px, 70px 100px;
+        box-shadow: -20px -20px 100px 0 black inset;
+      }
+    }
+    
+    @for $i from 1 through 5 {
+      --d: 138px;
+      
+      &:nth-child(#{$i}) {
+        transform: rotateY(#{$i * 1/5}turn) translateZ(var(--d)) rotateX(-127deg);
+      }
+      
+      &:nth-child(#{$i + 5}) {
+        transform: rotateY(#{$i * 1/5}turn) translateZ(var(--d)) rotateX(11deg);
+      }
+      
+      &:nth-child(#{$i + 10}) {
+        bottom: calc(var(--base-height) * -1);
+        transform: rotateY(#{$i * 1/5}turn) translateZ(calc(var(--d) * -1)) rotateX(191deg);
+      }
+      
+      &:nth-child(#{$i + 15}) {
+        bottom: calc(var(--base-height) * -1);
+        transform: rotateY(#{$i * 1/5}turn) translateZ(calc(var(--d) * -1)) rotateX(53deg);
+      }
+    }
+  }
